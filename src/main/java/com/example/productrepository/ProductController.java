@@ -9,15 +9,16 @@ import java.util.List;
 @RestController
 @RequestMapping("api/products")
 public class ProductController {
-    private final ProductRepository productRepository;
 
-    public ProductController(ProductRepository productRepository) {
-        this.productRepository = productRepository;
+    private  final ProductService service;
+
+    public ProductController(ProductService service) {
+        this.service = service;
     }
 
     @GetMapping()
     public List<Product> getAllProducts(){
-      return this.productRepository.findAll();
+      return this.service.findAllProducts();
     }
 
 }
