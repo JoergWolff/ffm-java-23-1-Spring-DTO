@@ -1,8 +1,6 @@
 package com.example.productrepository;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,6 +17,13 @@ public class ProductController {
     @GetMapping()
     public List<Product> getAllProducts(){
       return this.service.findAllProducts();
+    }
+
+    @PostMapping()
+    public Product addNewProduct(@RequestBody NewProduct newProduct){
+        System.out.println(newProduct);
+        return service.addProduct(newProduct);
+
     }
 
 }
